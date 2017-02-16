@@ -4,10 +4,19 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   </head>
   <body ng-controller = "film_id">
-
-    <h1>{{films.results[0]}}</h1>
+<ul>
+    <li ng-repeat="i in film_list" ng-click="show_infos(i)">{{i.original_title}}</li>
+</ul>
+<div>
+  <img src="{{img}}" />
+  <h1>{{title}}</h1>
+  <p>{{overview}}</p>
+  <p> Release date : {{date}}</p>
+  <p>Vote rating : {{vote}}</p>
+</div>
     <script src="film_id.js" charset="utf-8"></script>
   </body>
 </html>
