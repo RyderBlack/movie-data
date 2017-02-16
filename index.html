@@ -7,15 +7,18 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   </head>
   <body ng-controller = "film_id">
-<ul>
-    <li ng-repeat="i in film_list" ng-click="show_infos(i)">{{i.original_title}}</li>
-</ul>
+    <div>
 <div>
-  <img src="{{img}}" />
+    <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" heigth="10%" style="float:left;margin:10px"
+    ng-repeat="i in film_list" ng-click="show_infos(i)" /> 
+</div>
+<div>
+  <img src="{{img}}" width="20%" height="20%" style="float:left"/>
   <h1>{{title}}</h1>
   <p>{{overview}}</p>
   <p> Release date : {{date}}</p>
   <p>Vote rating : {{vote}}</p>
+</div>
 </div>
     <script src="film_id.js" charset="utf-8"></script>
   </body>
