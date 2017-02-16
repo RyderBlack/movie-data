@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="">
+            <meta name="author" content="">
+            <link rel="shortcut icon" href="assets/ico/favicon.png">
+            <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+            <script src="app.js" type="text/javascript"></script>
+
+            <title>Movie Data</title>
+
+            <!-- Bootstrap core CSS -->
+            <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+            <!-- Custom styles for this template -->
+            <link href="assets/css/soon.css" rel="stylesheet">
+
+            <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <script src="assets/js/respond.min.js"></script> <![endif]-->
+
+            <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <!-- START BODY -->
+        <body >
+
+            <!-- START HEADER -->
+            <section id="header">
+                <div class="container-fluid">
+                    <header>
+                        <!-- HEADLINE -->
+                        <h1 data-animated="GoIn" class="text-center">
+                            <b>
+                                liste des films</b> <br>
+                                de Sci-Fi
+                            </h1>
+                    </header>
+
+                    <div class="row">
+                      <div class="col-md-6 col-sm-offset-3">
+                        <form class="form1">
+                            <input class="input1" type="text" placeholder="rechercher un film"/>
+                        </form>
+                      </div>
+                    </div>
+
+<div class="container">
+  <div class="row">
+    <div class="films-display"></div>
+  </div>
+</div>
+
+
+                </div>   <!-- END container fluid  -->
+
+            </section>
+            <!-- END HEADER -->
+
+            <!-- START TABLE -->
+
+            <script type="text/javascript">
+
+                const lesFilms = 'https://eukavlin.github.io/movie-data/data.json';
+
+                const films = [];
+
+                fetch(lesFilms).then(blob => blob.json()).then(data => films.push(...data.results));
+                console.log(films);
+
+                function trouverFilm(recherche, films) {
+                    return films.filter(results => {
+                        const regex = new RegExp(recherche, 'gi');
+                        return results.original_title.match(regex)
+                        // || results.release_date.match(regex);
+                    });
+                }
+
+                function afficherResultat() {
+                    const tableauResultat = trouverFilm(this.value, films);
+                    const html = tableauResultat.map(results => {
+                        return `
+            <div class="col-sm-4 col-xs-offset-2" >
+              <img class="img-films" src="https://image.tmdb.org/t/p/w640${results.poster_path}" alt="affiche film">
+              <h4>${results.original_title}</h4>
+            </div>
+
+            `;
+                    }).join('');
+                    resultat.innerHTML = html;
+                }
+
+                const input = document.querySelector('input');
+                const resultat = document.querySelector('.films-display');
+
+                input.addEventListener('change', afficherResultat);
+                input.addEventListener('keyup', afficherResultat);
+            </script>
+            <!-- END TABLE -->
+            <!-- Bootstrap core JavaScript
+    ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/soon/plugins.js"></script>
+            <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+            <script src="assets/js/soon/custom.js"></script>
+        </body>
+        <!-- END BODY -->
+    </html>
