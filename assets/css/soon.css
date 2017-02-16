@@ -823,7 +823,6 @@ body{
 
 .img-films {
   width: 90%;
-
 }
 
 .input1 {
@@ -837,8 +836,4 @@ body{
     border-width: 0 0 5px;
     outline: 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-}
-
-h4 {
-  width: 100%;
 }
