@@ -5,12 +5,16 @@
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
+    <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style.css" media="screen">
+
   </head>
   <body ng-controller = "film_id">
     <div>
 <div>
     <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" heigth="10%" style="float:left;margin:10px"
-    ng-repeat="i in film_list" ng-click="show_infos(i)" /> 
+    ng-repeat="i in film_list" ng-click="show_infos(i)" />
 </div>
 <div>
   <img src="{{img}}" width="20%" height="20%" style="float:left"/>
@@ -18,8 +22,10 @@
   <p>{{overview}}</p>
   <p> Release date : {{date}}</p>
   <p>Vote rating : {{vote}}</p>
+  <a class="trailer" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
 </div>
 </div>
     <script src="film_id.js" charset="utf-8"></script>
+    <script src="scriptTrailer.js" charset="utf-8"></script>
   </body>
 </html>
