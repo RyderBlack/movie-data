@@ -41,7 +41,7 @@
                     <div class="row">
                       <div class="col-md-6 col-sm-offset-3">
                         <form class="form1">
-                            <input class="input1" type="text" placeholder="rechercher un film"/>
+                            <input class="input1" type="text" placeholder="rechercher un film par titre/année"/>
                         </form>
                       </div>
                     </div>
@@ -67,8 +67,8 @@
                 function trouverFilm(recherche, films) {
                     return films.filter(results => {
                         const regex = new RegExp("^"+recherche, 'gi');
-                        return results.original_title.match(regex)
-                        // || results.release_date.match(regex);
+                        const regex02 = new RegExp(recherche, 'gi');
+                        return results.original_title.match(regex) || results.release_date.match(regex02);
                     });
                 }
 
@@ -76,11 +76,10 @@
                     const tableauResultat = trouverFilm(this.value, films);
                     const html = tableauResultat.map(results => {
                         return `
-            <div class="col-sm-3" >
+            <div class="col-sm-3 vignette text-center" >
               <img class="img-films" src="https://image.tmdb.org/t/p/w640${results.poster_path}" alt="affiche film">
               <h4>${results.original_title}</h4>
             </div>
-
             `;
                     }).join('');
                     resultat.innerHTML = html;
@@ -89,6 +88,7 @@
                 const input = document.querySelector('input');
                 const resultat = document.querySelector('.films-display');
 
+                document.addEventListener('DOMContentLoaded', afficherResultat());
                 input.addEventListener('change', afficherResultat);
                 input.addEventListener('keyup', afficherResultat);
             </script>
