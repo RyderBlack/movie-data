@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="movieplug">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -9,28 +10,25 @@
     <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="style.css" media="screen">
 
-  </head>
-  <body ng-controller = "film_id">
+</head>
+
+<body ng-controller="film_id">
     <div>
-    <input type="search" name="name" value="" ng-model="query.original_title">
-<div>
-    <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" heigth="10%" style="float:left;margin:10px"
-    ng-repeat="i in film_list | filter:query" ng-click="show_infos(i)" />
-    <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" heigth="10%" style="float:left;margin:10px"
-    ng-repeat="i in film_list2 | filter:query" ng-click="show_infos(i)" />
-    <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" heigth="10%" style="float:left;margin:10px"
-    ng-repeat="i in film_list3 | filter:query" ng-click="show_infos(i)" />
-</div>
-<div id="info-div">
-  <img src="{{img}}" width="20%" height="20%" style="float:left"/>
-  <h4>{{title}}</h4>
-  <p>{{overview}}</p>
-  <p> Release date : {{date}}</p>
-  <p>Vote rating : {{vote}}</p>
-  <a class="trailer" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
-</div>
-</div>
+        <input type="search" name="name" value="" ng-model="query.original_title">
+        <div ng-repeat="a in film_list">
+            <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" style="float:left;margin:10px" ng-repeat="i in a|filter:query" ng-click="show_infos(i)" />
+        </div>
+        <div id="info-div">
+            <img src="{{img}}" width="20%" height="20%" style="float:left" />
+            <h4>{{title}}</h4>
+            <p>{{overview}}</p>
+            <p> Release date : {{date}}</p>
+            <p>Vote rating : {{vote}}</p>
+            <a class="trailer" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
+        </div>
+    </div>
     <script src="film_id.js" charset="utf-8"></script>
     <script src="scriptTrailer.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>
