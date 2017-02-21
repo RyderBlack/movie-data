@@ -820,11 +820,6 @@ body{
   background-color: #1b1b1b!important;
 }
 
-.img-films {
-  width: 25%;
-  padding: 20px;
-}
-
 .input1 {
     width: 100%;
     margin: 0;
@@ -839,10 +834,30 @@ body{
     margin-bottom: 2.5em;
 }
 
+.img-films {
+  width: 25%;
+  padding: 20px;
+}
+
 .vignette {
     margin: 3.5em;
 }
 
-.info-div {
-  width: 50%;
+#info-div {
+  border: 3px solid red;
+  background-color: white;
+  position: fixed;
+  right: 0;
+  z-index: 999;
+  transition: .8s;
+   overflow: hidden;
+   padding: 20px;
+}
+
+.img-poster>img {
+  width: 90%;
+}
+
+.title-movie {
+  color: #1a1a1a;
 }

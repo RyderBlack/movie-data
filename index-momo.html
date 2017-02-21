@@ -6,8 +6,6 @@
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
-    <!-- Fancybox( trailer lightbox) -->
     <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
     <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
     <!-- Bootstrap core CSS -->
@@ -23,55 +21,78 @@
 
 <body ng-controller="film_id">
 
-    <!-- START HEADER -->
-    <section id="header">
-        <div class="container-fluid">
-            <header>
-                <!-- HEADLINE -->
-                <h1 data-animated="GoIn" class="text-center">
+  <!-- START HEADER -->
+  <section id="header">
+      <div class="container-fluid">
+          <header>
+              <!-- HEADLINE -->
+              <h1 data-animated="GoIn" class="text-center">
                   <b>
                       Sci-Fi</b> <br>
                     Movies List
                   </h1>
-            </header>
+          </header>
 
-            <!-- SEARCHBAR  -->
-            <div class="row">
-                <div class="col-md-6 col-sm-offset-3">
-                    <form class="form1">
-                        <input class="input1" type="search" placeholder="search by name or release date" ng-model="query.original_title">
-                    </form>
-                </div>
-            </div>
+<!-- SEARCHBAR  -->
+      <div class="row">
+        <div class="col-md-6 col-sm-offset-3">
+          <form class="form1">
+              <input class="input1" type="search" placeholder="search by name or release date" ng-model="query.original_title">
+            </form>
+          </div>
+        </div>
 
 
-            <!-- GRILLE -->
-            <div class="container-fluid films-display">
-                <div ng-repeat="a in film_list">
-                          <img class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in a|filter:query" ng-click="show_infos(i)"/>
-                </div>
-            </div>
+      <!-- GRILLE -->
+      <div class="container-fluid films-display">
 
-            <!-- MOVIES INFO  -->
-            <div id="info-div">
-                <img src="{{img}}" class="img-films" />
-                <h4>{{title}}</h4>
-                <p>{{overview}}</p>
-                <p> Release date : {{date}}</p>
-                <p>Vote rating : {{vote}}</p>
-                <a class="trailer" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
-            </div>
+
+        <!-- MOVIES INFO  -->
+    <div id="info-div" class="col-md-5">
+      <div class="row">
+
+<div class="col-md-6">
+
+          <div class="row">
+            <h4 class="col-md-6 title-movie">{{title}}</h4>
+            <p class="col-md-6"> Release date : {{date}}</p>
+          </div>
+
+        <div class="row">
+          <p class="col-md-12">{{overview}}</p>
+        </div>
+
+        <div class="row">
+          <p class="col-md-12">Vote rating : {{vote}}</p>
+        </div>
+
+        <div class="row">
+          <a class="trailer col-md-12" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
+        </div>
+
+      </div>
+        <div class="img-poster col-md-6">
+        <img src="{{img}}"/>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GRILLE MOVIES-->
+        <div ng-repeat = "a in film_list">
+
+            <img  class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in a|filter:query | orderBy:original_title" ng-click="show_infos(i)" />
 
         </div>
-        <!-- END container fluid  -->
-    </section>
-    <!-- END SECTION/PAGE -->
 
-    <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
-    <script src="assets/js/soon/plugins.js"></script>
-    <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
-    <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
-    <script src="assets/js/soon/custom.js"></script>
+    </div>   <!-- END container fluid  -->
+ </section> <!-- END SECTION/PAGE -->
+
+ <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+ <script src="assets/js/soon/plugins.js"></script>
+ <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+ <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+ <script src="assets/js/soon/custom.js"></script>
     <script src="film_id.js" charset="utf-8"></script>
     <script src="scriptTrailer.js" charset="utf-8"></script>
 </body>
