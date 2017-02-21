@@ -15,8 +15,8 @@
 <body ng-controller="film_id">
     <div>
         <input type="search" name="name" value="" ng-model="query.original_title">
-        <div ng-repeat="a in film_list">
-            <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="10%" style="float:left;margin:10px" ng-repeat="i in a|filter:query" ng-click="show_infos(i)" />
+        <div ng-repeat="a in film_list"> 
+            <img src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" width="25%" ng-repeat="i in a|filter:query" ng-click="show_infos(i)" />
         </div>
         <div id="info-div">
             <img src="{{img}}" width="20%" height="20%" style="float:left" />
