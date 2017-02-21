@@ -80,8 +80,9 @@
 
     <!-- GRILLE MOVIES-->
     <div>
-            <img  class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list|filter:query | orderBy:original_title" ng-click="show_infos(i)" />
+            <img  class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list|filter:query | orderBy:original_title" ng-click="show_infos(i)"  />
     </div>
+
     </div>   <!-- END container fluid  -->
  </section> <!-- END SECTION/PAGE -->
 
