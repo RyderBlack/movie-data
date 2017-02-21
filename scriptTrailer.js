@@ -10,7 +10,9 @@ $(document).ready(function() {
             'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
             'type': 'swf',
             'swf': {
-                'allowfullscreen':'true','wmode': 'transparent' }
+                'allowfullscreen': 'true',
+                'wmode': 'transparent'
+            }
         });
         return false;
     });
