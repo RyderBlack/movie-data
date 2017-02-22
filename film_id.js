@@ -4,13 +4,18 @@ app.controller('film_id', function($scope, $http) {
         $scope.film_list = [];
         $http.get("https://api.themoviedb.org/3/genre/878/movies?api_key=e72f880255c5b01996f688fc51152f3a&page=" + i).
         then(function(response) {
-            $scope.films = response.data;
-            $scope.film_list.push($scope.films.results);
+            let films = response.data;
+            for (let j=0; j< films.results.length-1; j++){
+              $scope.film_list.push(films.results[j]);
+            }
         });
     }
 
     $scope.show_infos = function(i) {
-        console.log("click is ok !");
+        $('#info-div').addClass('displayed');
+        $('#info-div').on('click', '.bye', function() {
+          $('#info-div').removeClass('displayed');
+        });
 
         $scope.title = i.original_title;
         $scope.overview = i.overview;
