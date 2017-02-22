@@ -15,6 +15,8 @@
     <link href="assets/css/soon.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
 </head>
 
 </head>
@@ -48,15 +50,17 @@
 
 
                 <!-- MOVIES INFO  -->
-                <div id="info-div" class="col-md-5">
+                <div id="info-div" class="col-md-6 col-sm-7 col-xs-10 info-div">
+                    <span class="bye">X</span>
                     <div class="row">
 
-                        <div class="col-md-6">
+                        <div class="col-xs-6">
 
                             <div class="row">
                                 <h4 class="col-md-6 title-movie">{{title}}</h4>
-                                <p class="col-md-6"> Release date : {{date}}</p>
+                                <p class="col-md-6"> Release date : <br> {{date}}</p>
                             </div>
+
 
                             <div class="row">
                                 <p class="col-md-12">{{overview}}</p>
@@ -67,11 +71,12 @@
                             </div>
 
                             <div class="row">
-                                <a class="trailer col-md-12" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
+                                <a class="trailer col-md-12" href="https://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
                             </div>
 
+
                         </div>
-                        <div class="img-poster col-md-6">
+                        <div class="img-poster col-xs-6">
                             <img src="{{img}}" />
                         </div>
 
@@ -85,8 +90,14 @@
 
             </div>
             <!-- END container fluid  -->
+
     </section>
     <!-- END SECTION/PAGE -->
+    <footer>
+        <p>
+            <a href="https://github.com/eukavlin/movie-data"><i class="devicon-github-plain"></i></a> Copyright 2017 MOVIE-DATA Inc.
+        </p>
+    </footer>
 
     <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
     <script src="assets/js/soon/plugins.js"></script>

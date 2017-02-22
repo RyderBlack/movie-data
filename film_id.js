@@ -12,6 +12,10 @@ app.controller('film_id', function($scope, $http) {
     }
 
     $scope.show_infos = function(i) {
+        $('#info-div').addClass('displayed');
+        $('#info-div').on('click', '.bye', function() {
+          $('#info-div').removeClass('displayed');
+        });
         console.log("click is ok !");
 
         $scope.title = i.original_title;
