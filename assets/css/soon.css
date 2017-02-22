@@ -906,3 +906,7 @@ footer p {
 footer i {
   color: white;
 }
+
+footer a {
+  text-decoration: none !important;
+}
