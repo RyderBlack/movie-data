@@ -888,3 +888,25 @@ body{
 .title-movie {
   color: #1a1a1a;
 }
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background-color: black;
+  font-family: "Raleway";
+  color: white;
+}
+
+footer p {
+  margin:0;
+}
+
+footer i {
+  color: white;
+}
+
+footer a {
+  text-decoration: none !important;
+}
