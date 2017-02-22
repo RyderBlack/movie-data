@@ -843,15 +843,42 @@ body{
     margin: 3.5em;
 }
 
-#info-div {
-  border: 3px solid red;
+
+.info-div {
+  border: 3px solid #B90000;
   background-color: white;
   position: fixed;
-  right: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
   z-index: 999;
   transition: .8s;
    overflow: hidden;
    padding: 20px;
+   height: 0;
+   overflow: hidden;
+   visibility: hidden;
+   opacity: 0;
+   transition: opacity 0.2s;
+
+}
+
+.displayed {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.bye {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.bye:hover {
+  color: #B90000;
 }
 
 .img-poster>img {
