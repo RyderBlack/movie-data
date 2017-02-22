@@ -21,76 +21,78 @@
 
 <body ng-controller="film_id">
 
-  <!-- START HEADER -->
-  <section id="header">
-      <div class="container-fluid">
-          <header>
-              <!-- HEADLINE -->
-              <h1 data-animated="GoIn" class="text-center">
+    <!-- START HEADER -->
+    <section id="header">
+        <div class="container-fluid">
+            <header>
+                <!-- HEADLINE -->
+                <h1 data-animated="GoIn" class="text-center">
                   <b>
                       Sci-Fi</b> <br>
                     Movies List
                   </h1>
-          </header>
+            </header>
 
-<!-- SEARCHBAR  -->
-      <div class="row">
-        <div class="col-md-6 col-sm-offset-3">
-          <form class="form1">
-              <input class="input1" type="search" placeholder="search by name or release date" ng-model="query.original_title">
-            </form>
-          </div>
-        </div>
-
-
-      <!-- GRILLE -->
-      <div class="container-fluid films-display">
+            <!-- SEARCHBAR  -->
+            <div class="row">
+                <div class="col-md-6 col-sm-offset-3">
+                    <form class="form1">
+                        <input class="input1" type="search" placeholder="search by name or release date" ng-model="query.original_title">
+                    </form>
+                </div>
+            </div>
 
 
-        <!-- MOVIES INFO  -->
-    <div id="info-div" class="col-md-5">
-      <div class="row">
+            <!-- GRILLE -->
+            <div class="container-fluid films-display">
 
-<div class="col-md-6">
 
-          <div class="row">
-            <h4 class="col-md-6 title-movie">{{title}}</h4>
-            <p class="col-md-6"> Release date : {{date}}</p>
-          </div>
+                <!-- MOVIES INFO  -->
+                <div id="info-div" class="col-md-5">
+                    <div class="row">
 
-        <div class="row">
-          <p class="col-md-12">{{overview}}</p>
-        </div>
+                        <div class="col-md-6">
 
-        <div class="row">
-          <p class="col-md-12">Vote rating : {{vote}}</p>
-        </div>
+                            <div class="row">
+                                <h4 class="col-md-6 title-movie">{{title}}</h4>
+                                <p class="col-md-6"> Release date : {{date}}</p>
+                            </div>
 
-        <div class="row">
-          <a class="trailer col-md-12" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
-        </div>
+                            <div class="row">
+                                <p class="col-md-12">{{overview}}</p>
+                            </div>
 
-      </div>
-        <div class="img-poster col-md-6">
-        <img src="{{img}}"/>
-        </div>
+                            <div class="row">
+                                <p class="col-md-12">Vote rating : {{vote}}</p>
+                            </div>
 
-      </div>
-    </div>
+                            <div class="row">
+                                <a class="trailer col-md-12" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
+                            </div>
 
-    <!-- GRILLE MOVIES-->
-    <div>
-            <img  class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list|filter:query | orderBy:original_title" ng-click="show_infos(i)"  />
-    </div>
+                        </div>
+                        <div class="img-poster col-md-6">
+                            <img src=" {{img}} " />
+                        </div>
 
-    </div>   <!-- END container fluid  -->
- </section> <!-- END SECTION/PAGE -->
+                    </div>
+                </div>
 
- <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
- <script src="assets/js/soon/plugins.js"></script>
- <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
- <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
- <script src="assets/js/soon/custom.js"></script>
+                <!-- GRILLE MOVIES-->
+                <div>
+                    <img class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list|filter:query | orderBy:original_title" ng-click="show_infos(i)" />
+                </div>
+
+            </div>
+            <!-- END container fluid  -->
+    </section>
+    <!-- END SECTION/PAGE -->
+
+    <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
+    <script src="assets/js/soon/plugins.js"></script>
+    <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+    <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+    <script src="assets/js/soon/custom.js"></script>
     <script src="film_id.js" charset="utf-8"></script>
     <script src="scriptTrailer.js" charset="utf-8"></script>
 </body>
