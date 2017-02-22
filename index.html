@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Movie Data Project</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js"></script>
@@ -37,7 +37,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-offset-3">
                     <form class="form1">
-                        <input class="input1" type="search" placeholder="search by name or release date" ng-model="query.original_title">
+                        <input class="input1" type="text" placeholder="search by name or release date" ng-model="input" ng-change="query1=input;query2=input; " >
+                        <input type="hidden" ng-model="query1.original_title" />
+                        <input type="hidden" ng-model="query2.release_date" />
                     </form>
                 </div>
             </div>
@@ -52,37 +54,37 @@
       <span class="bye">X</span>
       <div class="row">
 
-<div class="col-xs-6">
+        <div class="col-xs-6">
 
           <div class="row">
             <h4 class="col-md-6 title-movie">{{title}}</h4>
             <p class="col-md-6"> Release date : <br> {{date}}</p>
           </div>
 
+          <div class="row">
+              <p class="col-md-12">{{overview}}</p>
+          </div>
 
-                            <div class="row">
-                                <p class="col-md-12">{{overview}}</p>
-                            </div>
+          <div class="row">
+              <p class="col-md-12">Vote rating : {{vote}}</p>
+          </div>
 
-                            <div class="row">
-                                <p class="col-md-12">Vote rating : {{vote}}</p>
-                            </div>
+          <div class="row">
+              <a class="trailer col-md-12" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
+          </div>
 
-                            <div class="row">
-                                <a class="trailer col-md-12" href="http://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
-                            </div>
-
-      </div>
-        <div class="img-poster col-xs-6">
-        <img src="{{img}}"/>
         </div>
 
-                    </div>
-                </div>
+        <div class="img-poster col-xs-6">
+          <img src="{{img}}"/>
+        </div>
+
+      </div> <!-- END BIG ROW-->
+    </div> <!-- END INFO DIV-->
 
                 <!-- GRILLE MOVIES-->
                 <div>
-                    <img class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list|filter:query | orderBy:original_title" ng-click="show_infos(i)" />
+                    <img class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list | filter:query1:query2 " ng-click="show_infos(i)" />
                 </div>
 
             </div>

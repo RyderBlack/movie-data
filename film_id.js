@@ -34,5 +34,4 @@ app.controller('film_id', function($scope, $http) {
 
     };
 
-
 });
