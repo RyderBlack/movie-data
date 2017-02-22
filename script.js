@@ -1,5 +1,17 @@
 $(document).ready(function() {
 
+    $(window).scroll(function() {
+        let distanceY = window.pageYOffset;
+        let shrinkOn = 200;
+        if (distanceY > shrinkOn) {
+            $('.header').addClass("smaller");
+        } else {
+            if ($('.header').hasClass("smaller")) {
+                $('.header').removeClass("smaller");
+            }
+        }
+    });
+
     $(".trailer").click(function(e) {
 
         e.preventDefault();

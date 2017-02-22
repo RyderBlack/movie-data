@@ -25,7 +25,7 @@
 
     <!-- START HEADER -->
     <section id="header">
-        <div class="container-fluid">
+        <div class="container-fluid header">
             <header>
                 <!-- HEADLINE -->
                 <h1 data-animated="GoIn" class="text-center">
@@ -39,64 +39,63 @@
             <div class="row">
                 <div class="col-md-6 col-sm-offset-3">
                     <form class="form1">
-                        <input class="input1" type="text" placeholder="search by name or release date" ng-model="input" ng-change="query1=input;query2=input; " >
-                        <input type="hidden" ng-model="query1.original_title" />
-                        <input type="hidden" ng-model="query2.release_date" />
+                        <input class="input1" type="text" placeholder="search by name or release date" ng-model="query.original_title">
                     </form>
                 </div>
             </div>
 
-
-            <!-- GRILLE -->
-            <div class="container-fluid films-display">
-
-
-        <!-- MOVIES INFO  -->
-    <div id="info-div" class="col-md-6 col-sm-7 col-xs-10 info-div">
-      <span class="bye">X</span>
-      <div class="row">
-
-        <div class="col-xs-6">
-
-          <div class="row">
-            <h4 class="col-md-6 title-movie">{{title}}</h4>
-            <p class="col-md-6"> Release date : <br> {{date}}</p>
-          </div>
-
-          <div class="row">
-              <p class="col-md-12">{{overview}}</p>
-          </div>
-
-          <div class="row">
-              <p class="col-md-12">Vote rating : {{vote}}</p>
-          </div>
-
-          <div class="row">
-              <a class="trailer col-md-12" href="https://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
-          </div>
-
         </div>
+        <!-- GRILLE -->
+        <div class="container-fluid films-display">
 
-        <div class="img-poster col-xs-6">
-          <img src="{{img}}"/>
-        </div>
 
-      </div> <!-- END BIG ROW-->
-    </div> <!-- END INFO DIV-->
+            <!-- MOVIES INFO  -->
+            <div id="info-div" class="col-md-6 col-sm-7 col-xs-10 info-div">
+                <span class="bye">X</span>
+                <div class="row">
 
-                <!-- GRILLE MOVIES-->
-                <div>
-                    <img class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list | filter:query1:query2 " ng-click="show_infos(i)" />
+                    <div class="col-xs-6">
+
+                        <div class="row">
+                            <h4 class="col-md-6 title-movie">{{title}}</h4>
+                            <p class="col-md-6"> Release date : <br> {{date}}</p>
+                        </div>
+
+                        <div class="row">
+                            <p class="col-md-12">{{overview}}</p>
+                        </div>
+
+                        <div class="row">
+                            <p class="col-md-12">Vote rating : {{vote}}</p>
+                        </div>
+
+                        <div class="row">
+                            <a class="trailer col-md-12" href="https://www.youtube.com/watch?v={{videoId}}&amp;autoplay=1">Trailer {{title}}</a>
+                        </div>
+
+                    </div>
+
+                    <div class="img-poster col-xs-6">
+                        <img src="{{img}}" />
+                    </div>
+
                 </div>
-
+                <!-- END BIG ROW-->
             </div>
-            <!-- END container fluid  -->
+            <!-- END INFO DIV-->
+
+            <!-- GRILLE MOVIES-->
+            <div>
+                <img class="img-films" src="https://image.tmdb.org/t/p/w640{{i.poster_path}}" ng-repeat="i in film_list | filter:query" ng-click="show_infos(i)" />
+            </div>
+
+        </div>
+        <!-- END container fluid  -->
     </section>
     <!-- END SECTION/PAGE -->
     <footer>
         <p>
-          <a href="https://github.com/eukavlin/movie-data"><i class="devicon-github-plain"></i></a>
-          Copyright 2017 MOVIE-DATA Inc.
+            <a href="https://github.com/eukavlin/movie-data"><i class="devicon-github-plain"></i></a> Copyright 2017 MOVIE-DATA Inc.
         </p>
     </footer>
 
@@ -106,7 +105,7 @@
     <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
     <script src="assets/js/soon/custom.js"></script>
     <script src="film_id.js" charset="utf-8"></script>
-    <script src="scriptTrailer.js" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
 </body>
 
 </html>
