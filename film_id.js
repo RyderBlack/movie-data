@@ -13,8 +13,14 @@ app.controller('film_id', function($scope, $http) {
 
     $scope.show_infos = function(i) {
         $('#info-div').addClass('displayed');
+        $('.cover').addClass('displayed');
         $('#info-div').on('click', '.bye', function() {
           $('#info-div').removeClass('displayed');
+          $('.cover').removeClass('displayed');
+        });
+        $('.cover').on('click', function() {
+          $('#info-div').removeClass('displayed');
+          $('.cover').removeClass('displayed');
         });
 
         $scope.title = i.original_title;
